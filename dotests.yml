@@ -1,0 +1,8 @@
+---
+- name: Perform some tests
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Perform some tests
+      ansible.builtin.debug:
+        msg: "Do tests on: {{ _hostname }}"

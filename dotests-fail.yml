@@ -1,0 +1,8 @@
+---
+- name: Perform some tests
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Perform some tests and fail
+      ansible.builtin.fail:
+        msg: "Do tests and fail on: {{ _hostname }}"
