@@ -1,0 +1,8 @@
+---
+- name: Destroy test environment
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Here we destroy test environment
+      ansible.builtin.debug:
+        msg: "Destroy test environment: {{ _hostname }}"
