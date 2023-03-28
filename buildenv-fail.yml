@@ -1,0 +1,21 @@
+---
+- name: Build test environment
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create variable with hostname
+      ansible.builtin.set_fact:
+        _hostname: testserver01
+
+    - name: Use set_stats module to pass vars between plays
+      ansible.builtin.set_stats:
+        data:
+          _hostname: testserver01
+
+    - name: Here we build test environment
+      ansible.builtin.debug:
+        msg: "Build test environment: {{ _hostname }}"
+
+    - name: Fail
+      ansible.builtin.fail:
+        msg: "Build failed"
